@@ -1,0 +1,59 @@
+***** HSPICE -- G-2012.06-SP2 32-BIT (Nov 27 2012) RHEL32 ******
+ Input File: test.sp
+ lic: No 'setenv LM_LICENSE_FILE' in current environment'
+ lic:
+ lic: FLEXlm: v10.9.8
+ lic: USER:   junkaijiang          HOSTNAME: linux34.engr.ucsb.edu
+ lic: HOSTID: 001143eb4ba5         PID:      10209
+ lic: Using FLEXlm license file:
+ lic: 1781@license.ece.ucsb.edu
+ lic: Checkout 1 hspice
+ lic: License/Maintenance for hspice will expire on 16-apr-2016/2015.06
+ lic: 1(in_use)/50(total) FLOATING license(s) on SERVER license.ece.ucsb.edu
+ lic:
+ init: begin read circuit files,  cpu clock=  1.20E-01
+       option search = /tools/ece/synopsys/hspice/G-2012.06-SP2/hspice/
+                         parts/ad
+       option search = /tools/ece/synopsys/hspice/G-2012.06-SP2/hspice/
+                         parts/ad
+       option search = /tools/ece/synopsys/hspice/G-2012.06-SP2/hspice/
+                         parts/behave
+       option search = /tools/ece/synopsys/hspice/G-2012.06-SP2/hspice/
+                         parts/bjt
+       option search = /tools/ece/synopsys/hspice/G-2012.06-SP2/hspice/
+                         parts/burr_brn
+       option search = /tools/ece/synopsys/hspice/G-2012.06-SP2/hspice/
+                         parts/comlinear
+       option search = /tools/ece/synopsys/hspice/G-2012.06-SP2/hspice/
+                         parts/dio
+       option search = /tools/ece/synopsys/hspice/G-2012.06-SP2/hspice/
+                         parts/fet
+       option search = /tools/ece/synopsys/hspice/G-2012.06-SP2/hspice/
+                         parts/lin_tech
+       option search = /tools/ece/synopsys/hspice/G-2012.06-SP2/hspice/
+                         parts/pci
+       option search = /tools/ece/synopsys/hspice/G-2012.06-SP2/hspice/
+                         parts/signet
+       option search = /tools/ece/synopsys/hspice/G-2012.06-SP2/hspice/
+                         parts/ti
+       option search = /tools/ece/synopsys/hspice/G-2012.06-SP2/hspice/
+                         parts/tline
+       option search = /tools/ece/synopsys/hspice/G-2012.06-SP2/hspice/
+                         parts/xilinx
+       option runlvl
+       option post =     2.00
+       option nomod
+ init: end read circuit files,  cpu clock=  1.30E-01 peak memory=       107 mb
+ init: begin check errors,  cpu clock=  1.30E-01
+ init: end check errors,  cpu clock=  1.40E-01 peak memory=       107 mb
+ init: begin setup matrix, pivot=     0 cpu clock=  1.40E-01
+       establish matrix -- done,  cpu clock=  1.40E-01 peak memory=       107 mb
+       re-order matrix -- done,  cpu clock=  1.40E-01 peak memory=       107 mb
+ init: end setup matrix,  cpu clock=  1.40E-01 peak memory=       107 mb
+ output: test.sw0
+ sweep: dc dc0    begin, #sweeps=  19 cpu clock=  1.40E-01
+ sweep: dc dc0    end,  cpu clock=  1.70E-01 peak memory=       108 mb
+ dcop: begin dcop,  cpu clock=  1.70E-01
+ dcop: end dcop,  cpu clock=  1.90E-01 peak memory=       107 mb                tot_iter=     217
+>info:         ***** hspice job concluded
+ lic: Release hspice token(s)

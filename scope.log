@@ -1,0 +1,20 @@
+ScopeSigMgr:loadpffile /fs/student/eding/cryogenic-sram/test_sram.tr0 1 openonly
+# PF:1
+pf:read PF:1 v(bl)
+# WF:1:1
+Graph addsignal WF:1:1 -region new -yview real(y) -xview real(x) -tracehi 2
+# Signal0
+pf:read PF:1 v(qb)
+# WF:1:2
+Graph addsignal WF:1:2 -region new -yview real(y) -xview real(x) -tracehi 2
+# Signal1
+pf:read PF:1 v(q)
+# WF:1:3
+Graph addsignal WF:1:3 -region new -yview real(y) -xview real(x) -tracehi 2
+# Signal2
+ScopeSigMgr:Unload 0 {{(1) test_sram.tr0}}
+ScopeSigMgr:Unload 0 {{(1) test_sram.tr0}}
+wm geometry .sigmgr 377x204+974+144
+wm geometry .sigmgr 378x204+974+144
+wm geometry .sigmgr 378x200+964+140
+wm geometry .sigmgr 378x200+974+148

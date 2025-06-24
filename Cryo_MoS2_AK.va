@@ -18,7 +18,7 @@ module Cryo_MoS2_AK(S,D,G);
 	parameter real pi	= `M_PI		from (0:inf);
 	parameter real hbar 	= `P_H / (2*pi)	from (0:inf);	//Reduced Plank Constant
 	parameter real q	= `P_Q		from (0:inf);	//Electron Charge
-	parameter real T	= 10	from (0:inf);	//Temperature of simulation
+	parameter real T	= 4	from (0:inf);	//Temperature of simulation
 	parameter real kT	= 8.6333e-5*T	from (0:inf);	//Thermal Voltage
 	parameter real kTE	= kT * q	from (0:inf);	//Thermal Energy 
 	parameter real kTE_4K	= 8.6333e-5*4*q	from (0:inf);	//Thermal Energy 
