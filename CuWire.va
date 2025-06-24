@@ -1,0 +1,93 @@
+/* Model developed to compare with GNR and Cu interconnect, all parameters from ITRS roadmap
+*/
+`include "disciplines.vams"
+`include "constants.vams"
+
+module dCuWire(p, n); 
+    
+    inout p, n; 
+    electrical p, n, gnd, m; 
+    ground gnd; 
+    branch (p,m) resistor; 
+    branch (m,n) inductor; 
+    branch (n,gnd) capacitor; 
+
+    // input parameters
+    parameter real          dl = 10n        from (0:inf); 
+    parameter real           w = 100n       from (0:inf); 
+    parameter real           h = 300n       from (0:inf); 
+    parameter real         rou = 5.08e-8    from (0:inf); 
+    parameter real           C = 1.9e-10    from (0:inf); 
+
+    real CuWire_R, CuWire_C, CuWire_L; 
+
+    analog begin
+        CuWire_R = rou*dl/w/h; 
+        CuWire_C = dl*C; 
+        CuWire_L = 0; 
+
+        V(resistor) <+ CuWire_R * I(resistor); 
+        V(inductor) <+ ddt(CuWire_L * I(inductor)); 
+        I(capacitor) <+ ddt(CuWire_C * V(capacitor)); 
+    end
+endmodule
+    
+module dCuWire5(p, n); 
+    
+    inout p, n; 
+    electrical p, n, n1, n2, n3, n4; 
+    
+    // input paramters
+    parameter real          dl = 10n        from (0:inf); 
+    parameter real           w = 100n       from (0:inf); 
+    parameter real           h = 300n       from (0:inf); 
+    parameter real         rou = 5.08e-8    from (0:inf); 
+    parameter real           C = 1.9e-10    from (0:inf); 
+
+    dCuWire #(.dl(dl), .w(w), .h(h), .rou(rou), .C(C)) dCuWire_1 (p, n1); 
+    dCuWire #(.dl(dl), .w(w), .h(h), .rou(rou), .C(C)) dCuWire_2 (n1, n2); 
+    dCuWire #(.dl(dl), .w(w), .h(h), .rou(rou), .C(C)) dCuWire_3 (n2, n3); 
+    dCuWire #(.dl(dl), .w(w), .h(h), .rou(rou), .C(C)) dCuWire_4 (n3, n4); 
+    dCuWire #(.dl(dl), .w(w), .h(h), .rou(rou), .C(C)) dCuWire_5 (n4, n); 
+    
+endmodule
+
+module dCuWire25(p, n); 
+    
+    inout p, n; 
+    electrical p, n, n1, n2, n3, n4; 
+    
+    // input paramters
+    parameter real          dl = 10n        from (0:inf); 
+    parameter real           w = 100n       from (0:inf); 
+    parameter real           h = 300n       from (0:inf); 
+    parameter real         rou = 5.08e-8    from (0:inf); 
+    parameter real           C = 1.9e-10    from (0:inf); 
+
+    dCuWire5 #(.dl(dl), .w(w), .h(h), .rou(rou), .C(C)) dCuWire5_1 (p, n1); 
+    dCuWire5 #(.dl(dl), .w(w), .h(h), .rou(rou), .C(C)) dCuWire5_2 (n1, n2); 
+    dCuWire5 #(.dl(dl), .w(w), .h(h), .rou(rou), .C(C)) dCuWire5_3 (n2, n3); 
+    dCuWire5 #(.dl(dl), .w(w), .h(h), .rou(rou), .C(C)) dCuWire5_4 (n3, n4); 
+    dCuWire5 #(.dl(dl), .w(w), .h(h), .rou(rou), .C(C)) dCuWire5_5 (n4, n); 
+    
+endmodule
+
+module CuWire(p,n); 
+    
+    inout p, n; 
+    electrical p, n, n1, n2, n3; 
+
+    // input paramters
+    parameter real           l = 1e-6        from (0:inf); 
+    parameter real           w = 100n       from (0:inf); 
+    parameter real           h = 300n       from (0:inf); 
+    parameter real         rou = 5.08e-8    from (0:inf); 
+    parameter real           C = 1.9e-10    from (0:inf); 
+
+    // dCuWire 
+    dCuWire25 #(.dl(l/100), .w(w), .h(h), .rou(rou), .C(C)) dCuWire25_1 (p, n1); 
+    dCuWire25 #(.dl(l/100), .w(w), .h(h), .rou(rou), .C(C)) dCuWire25_2 (n1, n2); 
+    dCuWire25 #(.dl(l/100), .w(w), .h(h), .rou(rou), .C(C)) dCuWire25_3 (n2, n3); 
+    dCuWire25 #(.dl(l/100), .w(w), .h(h), .rou(rou), .C(C)) dCuWire25_4 (n3, n); 
+
+endmodule

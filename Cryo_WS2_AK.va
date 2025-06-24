@@ -1,0 +1,325 @@
+`include "constants.vams"
+`include "disciplines.vams"
+
+module Cryo_WS2_AK(S,D,G);
+	inout S, D, G; //external ports
+	electrical S, D, G; //all nodes
+
+	//version
+	parameter real version = 1.00	from [0 : inf];
+
+	//Submodel Control Flags
+	parameter integer Type = -1	from [-1 : 1]
+	exclude 0; //type of FET, n-type = 1; p-type = -1;
+
+	//General Constants
+	parameter real eps	= `P_EPS0	from (0:inf);
+	parameter real m0	= 9.1e-31	from (0:inf);	//Static Electron Mass
+	parameter real pi	= `M_PI		from (0:inf);
+	parameter real hbar 	= `P_H / (2*pi)	from (0:inf);	//Reduced Plank Constant
+	parameter real q	= `P_Q		from (0:inf);	//Electron Charge
+	parameter real T	= 10	from (0:inf);	//Temperature of simulation
+	parameter real kT	= 8.6333e-5*T	from (0:inf);	//Thermal Voltage
+	parameter real kTE	= kT * q	from (0:inf);	//Thermal Energy 	
+	parameter real kTE_4K	= 8.6333e-5*4*q	from (0:inf);	//Thermal Energy 
+
+	// MoS2 specific parameters
+	parameter real epsilonTMDv	= 3.3734939759036138*eps	from (0:inf);	//Vertical dielectric constant
+	parameter real epsilonTMDp	= 5.3003003003003*eps	from (0:inf);	//Lateral dielectric constant
+	parameter real g_s		= 2		from (0:inf);	//Spin degeneracy
+	parameter real g_c1		= 2		from (0:inf);
+	parameter real g_c2		= 6		from (0:inf);
+	parameter real g_v		= 1		from (0:inf);
+	parameter real mx_c1		= 0.354602789000000*m0	from (0:inf);
+	parameter real mz_c1		= 0.354602789000000*m0	from (0:inf);
+	parameter real m_v		= 0.449371128000000*m0	from (0:inf);
+	parameter real Eg		= 1.83430000000000*q		from (0:inf);
+	parameter real dEc		= 0.208290000000000*q	from (0:inf);
+	parameter real m_c1		= sqrt(mx_c1*mz_c1)	from (0:inf);
+	//parameter real m_c2		= sqrt(mx_c2*mz_c2)	from (0:inf);
+	parameter real DOSc1		= g_s*g_c1*m_c1*kTE_4K/2/pi/hbar/hbar	from (0:inf);	//DOS for Fermi-Dirac for 1st CB
+	//parameter real DOSc2		= g_s*g_c2*m_c2*kTE_4K/2/pi/hbar/hbar	from (0:inf);	//DOS for Fermi-Dirac for 2nd CB
+
+
+	//Device parameters
+	parameter real T_TMD	= 0.65e-9	from (0:inf);
+	parameter real M_TMD	= 1		from (0:inf);
+	parameter real T_TOX	= 0.5e-9	from (0:inf);
+	parameter real T_BOX	= 0.5e-9	from (0:inf);
+	parameter real epsilonTOX	= 3.9*eps	from (0:inf);
+	parameter real epsilonBOX	= 3.9*eps	from (0:inf);
+	parameter real Cox		= 2*epsilonTOX/T_TOX	from (0:inf);
+	parameter real Vfb		= 0		from [0:inf);
+	parameter real W		= 2e-8		from (0:inf);
+	parameter real L		= 2e-8		from (0:inf);
+	parameter real Cox_WL		= Cox*W*L	from (0:inf);
+	parameter real Rseries		= 1e-1		from (0:inf);
+
+	//Numerical Convergence parameters
+	parameter real absTol	= 1e-15	from (0:inf);
+	parameter real maxIter	= 1e4	from (0:inf);
+
+	//Description of parameters in cball_main
+	real VS, VD, VG;
+	real miu_S, miu_D;
+	real eta_S, eta_D;
+	real f1, f2;
+	real Psi, dPsi, iter;
+	real Gch, Jch;
+
+	//Description of parameters for numerical integration of half and -half order Fermi integrals
+	real etaS. etaD;
+	real points, intrangeS, integralv_S, y1, y1_p2;
+	real intrangeD, integralv_D, y1_D, y1_p2_D;
+	real dx, k, i;
+	real integralGch_S, y2, y2_p2;
+	real intrangeGch;
+	
+	//Description of parameters for current calculation
+	real Vgs, Vds;	
+	real Is_2D, Id_2D, I_net;
+	
+	//Description of capacitance prefactors
+	real alpha_S, alpha_D;
+	
+	branch (D,S) branch_DS;
+	branch (G,S) C_GS;
+	branch (G,D) C_GD;
+
+	analog
+	begin
+		VS = Type*V(S);
+		VG = Type*V(G);
+		VD = Type*V(D);
+
+		Vgs = (VG - VS);
+		Vds = (VD - VS);
+		
+		//While loop parameters definition
+		Psi	 = -0.03*Type;
+		dPsi	 = 1*Type;
+		iter	 = 0;
+
+		if (Type == 1) begin
+
+			if (T > 7) begin
+				while (abs(dPsi) > absTol) begin
+					eta_S	= (Psi - VS)/kT;
+					eta_D	= (Psi - VD)/kT;
+					f1	= ln(1 + exp(eta_S));
+					f2	= ln(1 + exp(eta_D));
+					Gch	= M_TMD*(DOSc1/2)*(f1 + f2) - Cox*(VG - Vfb - Psi)/q;
+					Jch = M_TMD*(DOSc1/2/kT)*(1/(exp(-eta_S) + 1) + 1/(exp(-eta_D) + 1)) + Cox/q;
+					dPsi = -Gch/Jch;
+					Psi	= Psi + dPsi;
+					iter = iter + 1;
+				end
+			end
+		   
+		   //convergence issue arises for temperature below 7K and a fitting function is used to generate surface potential fuction
+		   //The fitting function parameters come from calculation from MATLAB and is fitted by a 5 order polynomial
+		   
+			else if (T == 7) begin
+				Psi = (-2.32025382e-04)+(2.84261560e-01)*VG+(-5.05421318e-01)*VG**2+(5.60518308e+00)*VG**3+(-2.77503417e+01)*VG**4+(5.05021708e+01)*VG**5;
+				eta_S	= (Psi - VS)/kT;
+				eta_D	= (Psi - VD)/kT;
+				f1	= ln(1 + exp(eta_S));
+				f2	= ln(1 + exp(eta_D));
+				Gch	= M_TMD*(DOSc1/2)*(f1 + f2) - Cox*(VG - Vfb - Psi)/q;
+				Jch = M_TMD*(DOSc1/2/kT)*(1/(exp(-eta_S) + 1) + 1/(exp(-eta_D) + 1)) + Cox/q;
+			end
+		   
+			else if (T == 6) begin
+				Psi = (-1.85882837e-04)+(2.80557905e-01)*VG+(-4.10955523e-01)*VG**2+(4.57102410e+00)*VG**3+(-2.26746488e+01)*VG**4+(4.13222629e+01)*VG**5;
+				eta_S	= (Psi - VS)/kT;
+				eta_D	= (Psi - VD)/kT;
+				f1	= ln(1 + exp(eta_S));
+				f2	= ln(1 + exp(eta_D));
+				Gch	= M_TMD*(DOSc1/2)*(f1 + f2) - Cox*(VG - Vfb - Psi)/q;
+				Jch = M_TMD*(DOSc1/2/kT)*(1/(exp(-eta_S) + 1) + 1/(exp(-eta_D) + 1)) + Cox/q;
+			end
+		   
+			else if (T == 5) begin
+				Psi = (-1.44307258e-04)+(2.77166879e-01)*VG+(-3.23740502e-01)*VG**2+(3.61141376e+00)*VG**3+(-1.79489601e+01)*VG**4+(3.27548337e+01)*VG**5;
+				eta_S	= (Psi - VS)/kT;
+				eta_D	= (Psi - VD)/kT;
+				f1	= ln(1 + exp(eta_S));
+				f2	= ln(1 + exp(eta_D));
+				Gch	= M_TMD*(DOSc1/2)*(f1 + f2) - Cox*(VG - Vfb - Psi)/q;
+				Jch = M_TMD*(DOSc1/2/kT)*(1/(exp(-eta_S) + 1) + 1/(exp(-eta_D) + 1)) + Cox/q;
+		   end
+		   
+			else if (T == 4) begin
+				Psi = (-0.000102924627)+(0.273371330)*VG+(-0.199208790)*VG**2+(2.05701469)*VG**3+(-9.80311546)*VG**4+(17.5378203)*VG**5;
+				eta_S	= (Psi - VS)/kT;
+				eta_D	= (Psi - VD)/kT;
+				f1	= ln(1 + exp(eta_S));
+				f2	= ln(1 + exp(eta_D));
+				Gch	= M_TMD*(DOSc1/2)*(f1 + f2) - Cox*(VG - Vfb - Psi)/q;
+				Jch = M_TMD*(DOSc1/2/kT)*(1/(exp(-eta_S) + 1) + 1/(exp(-eta_D) + 1)) + Cox/q;
+			end
+		   
+			else if (T == 3) begin
+				Psi = (-0.000102924627)+(0.273371330)*VG+(-0.199208790)*VG**2+(2.05701469)*VG**3+(-9.80311546)*VG**4+(17.5378203)*VG**5;
+				eta_S	= (Psi - VS)/kT;
+				eta_D	= (Psi - VD)/kT;
+				f1	= ln(1 + exp(eta_S));
+				f2	= ln(1 + exp(eta_D));
+				Gch	= M_TMD*(DOSc1/2)*(f1 + f2) - Cox*(VG - Vfb - Psi)/q;
+				Jch = M_TMD*(DOSc1/2/kT)*(1/(exp(-eta_S) + 1) + 1/(exp(-eta_D) + 1)) + Cox/q;
+			end
+		   
+			else if (T == 2) begin
+				Psi = (-8.09218833e-05)+(2.76550437e-01)*VG+(-5.13291020e-01)*VG**2+(9.50095477e+00)*VG**3+(-7.81220202e+01)*VG**4+(2.35464312e+02)*VG**5;
+				eta_S	= (Psi - VS)/kT;
+				eta_D	= (Psi - VD)/kT;
+				f1	= ln(1 + exp(eta_S));
+				f2	= ln(1 + exp(eta_D));
+				Gch	= M_TMD*(DOSc1/2)*(f1 + f2) - Cox*(VG - Vfb - Psi)/q;
+				Jch = M_TMD*(DOSc1/2/kT)*(1/(exp(-eta_S) + 1) + 1/(exp(-eta_D) + 1)) + Cox/q;
+			end
+		 
+		end
+
+		else if (Type == -1) begin
+
+			if (T > 7) begin
+				while (abs(dPsi) > absTol) begin
+					eta_S	= (Psi - VS)/kT;
+					eta_D	= (Psi - VD)/kT;
+					f1	= ln(1 + exp(eta_S));
+					f2	= ln(1 + exp(eta_D));
+					Gch	= M_TMD*(DOSc1/2)*(f1 + f2) - Cox*(VG - Vfb - Psi)/q;
+					Jch 	= M_TMD*(DOSc1/2/kT)*(1/(exp(-eta_S) + 1) + 1/(exp(-eta_D) + 1)) + Cox/q;
+					dPsi	= -Gch/Jch;
+					Psi	= Psi + dPsi;
+					iter	= iter + 1;
+				end
+			end
+	   
+			else if (T == 7) begin
+				Psi = (-0.1470044879758628)-(-0.26922216449047565)*VG+(0.18019168486703815)*VG**2-(-2.7609695246609194)*VG**3+(17.548410867557145)*VG**4-(-39.176421943187904)*VG**5;
+				eta_S	= (Psi - VS)/kT;
+				eta_D	= (Psi - VD)/kT;
+				f1	= ln(1 + exp(eta_S));
+				f2	= ln(1 + exp(eta_D));
+				Gch	= M_TMD*(DOSc1/2)*(f1 + f2) - Cox*(VG - Vfb - Psi)/q;
+				Jch 	= M_TMD*(DOSc1/2/kT)*(1/(exp(-eta_S) + 1) + 1/(exp(-eta_D) + 1)) + Cox/q;
+			end
+	   
+			else if (T == 6) begin
+				Psi = (-0.14700928912843877)-(-0.26830497144573495)*VG+(0.14205094141039853)*VG**2-(-2.173007209613958)*VG**3+(13.788401250135303)*VG**4-(-30.729943864129357)*VG**5;
+				eta_S	= (Psi - VS)/kT;
+				eta_D	= (Psi - VD)/kT;
+				f1	= ln(1 + exp(eta_S));
+				f2	= ln(1 + exp(eta_D));
+				Gch	= M_TMD*(DOSc1/2)*(f1 + f2) - Cox*(VG - Vfb - Psi)/q;
+				Jch 	= M_TMD*(DOSc1/2/kT)*(1/(exp(-eta_S) + 1) + 1/(exp(-eta_D) + 1)) + Cox/q;
+			end
+	   
+			else if (T == 5) begin
+				Psi = (-0.1470137718373318)-(-0.2674510285472721)*VG+(0.10663912246800296)*VG**2-(-1.6286563052872003)*VG**3+(10.317345856067877)*VG**4-(-22.955639899311848)*VG**5;
+				eta_S	= (Psi - VS)/kT;
+				eta_D	= (Psi - VD)/kT;
+				f1	= ln(1 + exp(eta_S));
+				f2	= ln(1 + exp(eta_D));
+				Gch	= M_TMD*(DOSc1/2)*(f1 + f2) - Cox*(VG - Vfb - Psi)/q;
+				Jch 	= M_TMD*(DOSc1/2/kT)*(1/(exp(-eta_S) + 1) + 1/(exp(-eta_D) + 1)) + Cox/q;
+			end
+
+			else if (T == 4) begin
+				Psi = (-0.14701783268484364)-(-0.2666796300538909)*VG+(0.07473733599461235)*VG**2-(-1.1396042603258107)*VG**3+(7.207569739610263)*VG**4-(-16.010217579414366)*VG**5;
+				eta_S	= (Psi - VS)/kT;
+				eta_D	= (Psi - VD)/kT;
+				f1	= ln(1 + exp(eta_S));
+				f2	= ln(1 + exp(eta_D));
+				Gch	= M_TMD*(DOSc1/2)*(f1 + f2) - Cox*(VG - Vfb - Psi)/q;
+				Jch 	= M_TMD*(DOSc1/2/kT)*(1/(exp(-eta_S) + 1) + 1/(exp(-eta_D) + 1)) + Cox/q;
+			end  	   
+		end
+
+		n_2D	= Cox*(VG - Vfb - Psi)/q;
+		ns_2D	= M_TMD*(DOSc1/2)*ln(1 + exp((Psi - VS)/kT));
+		nd_2D	= M_TMD*(DOSc1/2)*ln(1 + exp((Psi - VD)/kT));
+
+		//Integration for 1/2 order Fermi integral for calculation of source injection velocity
+		etaS = (Psi - VS)/kT;
+		points = 50000;
+		intrangeS = 2500;
+		integralv_S = 0;
+		dx = intrangeS/points;
+		for (i = 0; i <= points; i = i+1)
+		begin
+			k = i;
+			x = dx*k;
+			y1 = (2/sqrt(pi))*sqrt(x)/(1 + exp(x - etaS));
+			y1_p2 = (2/sqrt(pi))*sqrt(x + dx)/(1 + exp(x + dx - etaS));
+			integralv_S = integralv_S + 0.5*(y1 + y1_p2)*dx;
+		end
+
+		//Integration for 1/2 order Fermi integral for caculation of drain injection velocity
+		etaD = (Psi - VD)/kT;
+		points = 50000;
+		intrangeD = 2500;
+		integralv_D = 0;
+		dx = intrangeD/points;
+		for (i = 0; i <= points; i = i+1)
+		begin
+			k = i;
+			x = dx*k;
+			y1_D = (2/sqrt(pi))*sqrt(x)/(1 + exp(x - etaD));
+			y1_p2_D = (2/sqrt(pi))*sqrt(x + dx)/(1 + exp(x + dx - etaD));
+			integralv_D = integralv_D + 0.5*(y1_D + y1_p2_D)*dx;
+		end
+
+		//Integration for -1/2 order Fermi integral for calculation of Gch
+		integralGch_S = 0;
+		points = 50000;
+		intrangeGch = 2500;
+		dx = intrangeGch/points;
+		for (i = 0; i<= points; i = i+1)
+		begin
+			k = i;
+			x = dx*k;
+			y2 = (1/sqrt(pi))/(sqrt(x)*(1 + exp(x - etaS)));
+			y2_p2 = (1/sqrt(pi))/(sqrt(x + dx)*(1 + exp(x + dx - etaS)));
+			integralGch_S = integralGch_S + 0.5*(y2 + y2_p2)*dx;
+		end
+
+		//Calculation utilizing the 1/2 and -1/2 order Fermi integrals
+		v_inj	= sqrt(2*kTE_4K/pi/mx_c1)*integralv_S/(ln(1 + exp(etaS)));
+		Gch	= q*n_2D*sqrt(2*kTE_4K/pi/mx_c1)*(1/2/kT)*integralGch_S/(ln(1 + exp(etaS)));
+
+		//Calculation of current
+		Is_2D	= q*M_TMD*(DOSc1/2)*sqrt(2*kTE_4K/mx_c1/pi)*integralv_S;
+		Id_2D	= q*M_TMD*(DOSc1/2)*sqrt(2*kTE_4K/mx_c1/pi)*integralv_D;
+		I_net	= Is_2D - Id_2D;
+
+		//Calculation of capacitance prefactor
+		if(Vgs>=0)
+		begin
+			if(Vds>Vgs)
+			begin
+				alpha_S = 2/3;
+				alpha_D = 0;
+			end
+			else
+			begin
+				alpha_S = 0.5;
+				alpha_D = 0.5;
+			end
+		end
+		else
+		begin
+			alpha_S = 1;
+			alpha_D = 0;
+		end
+		
+		// Assigning capacitance value		
+		I(C_GS) <+ alpha_S*Cox_WL*ddt(V(C_GS));		
+		I(C_GD) <+ alpha_D*Cox_WL*ddt(V(C_GD));
+		
+		//Final Current
+		I(branch_DS) <+ Type * I_net*W;
+	end
+endmodule
