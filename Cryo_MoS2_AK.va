@@ -37,8 +37,8 @@ module Cryo_MoS2_AK(S,D,G);
 	parameter real dEc		= 0.246040000000000*q	from (0:inf);
 	parameter real m_c1		= sqrt(mx_c1*mz_c1)	from (0:inf);
 	//parameter real m_c2		= sqrt(mx_c2*mz_c2)	from (0:inf);
-	parameter real DOSc1		= g_s*g_c1*m_c1*kTE_4K/2/pi/hbar/hbar	from (0:inf);	//DOS for Fermi-Dirac for 1st CB
-	//parameter real DOSc2		= g_s*g_c2*m_c2*kTE_4K/2/pi/hbar/hbar	from (0:inf);	//DOS for Fermi-Dirac for 2nd CB
+	parameter real DOSc1		= g_s*g_c1*m_c1*kTE/2/pi/hbar/hbar	from (0:inf);	//DOS for Fermi-Dirac for 1st CB
+	//parameter real DOSc2		= g_s*g_c2*m_c2*kTE/2/pi/hbar/hbar	from (0:inf);	//DOS for Fermi-Dirac for 2nd CB
 
 
 	//Device parameters
@@ -287,12 +287,12 @@ module Cryo_MoS2_AK(S,D,G);
 		end
 
 		//Calculation utilizing the 1/2 and -1/2 order Fermi integrals
-		v_inj	= sqrt(2*kTE_4K/pi/mx_c1)*integralv_S/(ln(1 + exp(etaS)));
-		Gch	= q*n_2D*sqrt(2*kTE_4K/pi/mx_c1)*(1/2/kT)*integralGch_S/(ln(1 + exp(etaS)));
+		v_inj	= sqrt(2*kTE/pi/mx_c1)*integralv_S/(ln(1 + exp(etaS)));
+		Gch	= q*n_2D*sqrt(2*kTE/pi/mx_c1)*(1/2/kT)*integralGch_S/(ln(1 + exp(etaS)));
 
 		//Calculation of current
-		Is_2D	= q*M_TMD*(DOSc1/2)*sqrt(2*kTE_4K/mx_c1/pi)*integralv_S;
-		Id_2D	= q*M_TMD*(DOSc1/2)*sqrt(2*kTE_4K/mx_c1/pi)*integralv_D;
+		Is_2D	= q*M_TMD*(DOSc1/2)*sqrt(2*kTE/mx_c1/pi)*integralv_S;
+		Id_2D	= q*M_TMD*(DOSc1/2)*sqrt(2*kTE/mx_c1/pi)*integralv_D;
 		I_net	= Is_2D - Id_2D;
 
 		//Calculation of capacitance prefactor

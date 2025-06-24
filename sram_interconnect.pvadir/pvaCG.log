@@ -1,5 +1,5 @@
 
-Begin of pVA compiling on Mon Jun 23 17:29:15 2025	GTM/In-use: 0.2500/0.1741 MB
+Begin of pVA compiling on Tue Jun 24 11:29:03 2025	GTM/In-use: 0.2500/0.1741 MB
 
 Parsing 'CuWire.va'
 Parsing include file '/ece/synopsys/hspice/T-2022.06-SP1-1/hspice/include/disciplines.vams'
@@ -14,13 +14,13 @@ Parsing 'Cryo_WS2_AK.va'
 Parsing include file '/ece/synopsys/hspice/T-2022.06-SP1-1/hspice/include/constants.vams'
 Parsing include file '/ece/synopsys/hspice/T-2022.06-SP1-1/hspice/include/disciplines.vams'
 
-End of pVA compiling on Mon Jun 23 17:29:15 2025	GTM/In-use: 1.7500/1.6430 MB
+End of pVA compiling on Tue Jun 24 11:29:03 2025	GTM/In-use: 1.7500/1.6430 MB
 
 *pvaI* Hierarchical Verilog-A (HVA) instance has been detected: dCuWire5 (CuWire.va:35)
 *pvaI* Hierarchical Verilog-A (HVA) instance has been detected: dCuWire25 (CuWire.va:55)
 *pvaI* Hierarchical Verilog-A (HVA) instance has been detected: CuWire (CuWire.va:75)
 
-End of build pVA DB on Mon Jun 23 17:29:15 2025	GTM/In-use: 6.3750/6.2915 MB
+End of build pVA DB on Tue Jun 24 11:29:03 2025	GTM/In-use: 6.3750/6.2915 MB
 
 *pvaI* Module (dCuWire): 2 unexpanded port, 0 init, 6 behav, 3 contrib, 11/3 expr(s)
 *pvaI*        No DIS, 0/0 afCount, 1 MT, 8 NP, dlg, IO(0/0/0/0)
@@ -87,7 +87,7 @@ End of build pVA DB on Mon Jun 23 17:29:15 2025	GTM/In-use: 6.3750/6.2915 MB
 *pvaW*        variable 'v_inj' declared but not used in RHS, deleted (Cryo_WS2_AK.va:290)
 *pvaI*        generated 0 flow node(s) during compilation.
 
-End of pVA genC on Mon Jun 23 17:29:16 2025	GTM/In-use: 9.6250/9.3674 MB
+End of pVA genC on Tue Jun 24 11:29:04 2025	GTM/In-use: 9.6250/9.3674 MB
 
 *pvaI* #### Total 1499 line-size(s), 173/350 expr(s), 12 contr(s), 0 init(s), 371 behav(s), 17 port(s)
 
