@@ -3,18 +3,18 @@
 .hdl Cryo_MoS2_AK.va
 .hdl Cryo_WS2_AK.va
 
-VDD vdd gnd 0.5
+VDD vdd gnd 0.2
 VSS gnd 0 0
 
 * Drive Bitlines for Write Operation
-VBL    bl    gnd 0.5
+VBL    bl    gnd 0.2
 VBARBL barbl gnd 0
 
 * Word Line Pulse to enable access
-VWL wl gnd PULSE(0 0.5 10ns 200ps 200ps 20ns 40ns)
+VWL wl gnd PULSE(0 0.2 10ns 200ps 200ps 20ns 40ns)
 
 * Initial condition: Write 1 into Q (so start Q = 0)
-.IC V(Q)=0  V(QB)=0.5
+.IC V(Q)=0  V(QB)=0.2
 
 * Cross-coupled inverters
 Xpd1 gnd Q  QB Cryo_WS2_AK Type=1 W=3.800e-08 L=1.800e-08 T=4 absTol=1.000e-08

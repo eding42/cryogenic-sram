@@ -8,7 +8,7 @@
 |                                                         |
 |             Synopsys Unified Verilog-A (pVA)            |
 |                                                         |
-|          Machine Name: ecellvm-09.engr.ucsb.edu         |
+|          Machine Name: ecellvm-15.engr.ucsb.edu         |
 | Copyright (c) 2021 Synopsys Inc., All Rights Reserved.  |
 |                                                         |
  ---------------------------------------------------------
@@ -24,7 +24,7 @@ Args:            -p hsp -t spi -f test_sram.pvadir/pvaHDL.lis -o test_sram.pvadi
 ### ENV(PVA_LAPLACE) is 0 ###
 ### optimize mode ###
 
-Begin of pVA compiling on Tue Jun 24 00:09:04 2025	GTM/In-use: 0.2500/0.1661 MB
+Begin of pVA compiling on Tue Jun 24 11:34:43 2025	GTM/In-use: 0.2500/0.1637 MB
 
 Parsing 'Cryo_Si_AK.va'
 Parsing include file '/ece/synopsys/hspice/T-2022.06-SP1-1/hspice/include/constants.vams'
@@ -36,10 +36,10 @@ Parsing 'Cryo_WS2_AK.va'
 Parsing include file '/ece/synopsys/hspice/T-2022.06-SP1-1/hspice/include/constants.vams'
 Parsing include file '/ece/synopsys/hspice/T-2022.06-SP1-1/hspice/include/disciplines.vams'
 
-End of pVA compiling on Tue Jun 24 00:09:04 2025	GTM/In-use: 1.6250/1.4901 MB
+End of pVA compiling on Tue Jun 24 11:34:43 2025	GTM/In-use: 1.6250/1.4877 MB
 
 
-End of build pVA DB on Tue Jun 24 00:09:04 2025	GTM/In-use: 5.0000/4.9543 MB
+End of build pVA DB on Tue Jun 24 11:34:43 2025	GTM/In-use: 5.0000/4.9519 MB
 
 *pvaI* Module (Cryo_Si_AK): 3 unexpanded port, 0 init, 69 behav, 3 contrib, 31/60 expr(s)
 *pvaW*        Variable 'n_2D' is used without declaration, set to real. To error out, setenv PVA_AUTO_DECLARE 0 (Cryo_Si_AK.va:122)
@@ -49,8 +49,8 @@ End of build pVA DB on Tue Jun 24 00:09:04 2025	GTM/In-use: 5.0000/4.9543 MB
 *pvaW*        Variable 'x' is used without declaration, set to integer. To error out, setenv PVA_AUTO_DECLARE 0 (Cryo_Si_AK.va:135)
 *pvaW*        Variable 'etaD' is used without declaration, set to real. To error out, setenv PVA_AUTO_DECLARE 0 (Cryo_Si_AK.va:142)
 *pvaW*        Variable 'v_inj' is used without declaration, set to real. To error out, setenv PVA_AUTO_DECLARE 0 (Cryo_Si_AK.va:171)
-*pvaI*        No DIS, 0/0 afCount, 1 MT, 8 NP, dlg, IO(0/0/0/0)
-*pvaI*        1 gmdIsThreadSafe 
+*pvaI*        No DIS, 0/0 afCount, 0 MT, dlg, IO(0/0/0/0)
+*pvaI*        0 gmdIsThreadSafe 
 *pvaI*        0 const-G and 0 const-C, No switchBranch, 22 bypassOpt, 0 bus2scalar, 0 vwb
 *pvaI*        set_va_exp = 80 [80.0, 704.0] set by default
 *pvaW*        variable 'miu_S' declared but not used in RHS, deleted (Cryo_Si_AK.va:66)
@@ -69,8 +69,8 @@ End of build pVA DB on Tue Jun 24 00:09:04 2025	GTM/In-use: 5.0000/4.9543 MB
 *pvaW*        Variable 'x' is used without declaration, set to integer. To error out, setenv PVA_AUTO_DECLARE 0 (Cryo_MoS2_AK.va:254)
 *pvaW*        Variable 'etaD' is used without declaration, set to real. To error out, setenv PVA_AUTO_DECLARE 0 (Cryo_MoS2_AK.va:261)
 *pvaW*        Variable 'v_inj' is used without declaration, set to real. To error out, setenv PVA_AUTO_DECLARE 0 (Cryo_MoS2_AK.va:290)
-*pvaI*        No DIS, 0/0 afCount, 1 MT, 8 NP, dlg, IO(0/0/0/0)
-*pvaI*        1 gmdIsThreadSafe 
+*pvaI*        No DIS, 0/0 afCount, 0 MT, dlg, IO(0/0/0/0)
+*pvaI*        0 gmdIsThreadSafe 
 *pvaI*        0 const-G and 0 const-C, No switchBranch, 22 bypassOpt, 0 bus2scalar, 0 vwb
 *pvaI*        set_va_exp = 80 [80.0, 704.0] set by default
 *pvaW*        variable 'miu_S' declared but not used in RHS, deleted (Cryo_MoS2_AK.va:64)
@@ -88,8 +88,8 @@ End of build pVA DB on Tue Jun 24 00:09:04 2025	GTM/In-use: 5.0000/4.9543 MB
 *pvaW*        Variable 'x' is used without declaration, set to integer. To error out, setenv PVA_AUTO_DECLARE 0 (Cryo_WS2_AK.va:254)
 *pvaW*        Variable 'etaD' is used without declaration, set to real. To error out, setenv PVA_AUTO_DECLARE 0 (Cryo_WS2_AK.va:261)
 *pvaW*        Variable 'v_inj' is used without declaration, set to real. To error out, setenv PVA_AUTO_DECLARE 0 (Cryo_WS2_AK.va:290)
-*pvaI*        No DIS, 0/0 afCount, 1 MT, 8 NP, dlg, IO(0/0/0/0)
-*pvaI*        1 gmdIsThreadSafe 
+*pvaI*        No DIS, 0/0 afCount, 0 MT, dlg, IO(0/0/0/0)
+*pvaI*        0 gmdIsThreadSafe 
 *pvaI*        0 const-G and 0 const-C, No switchBranch, 22 bypassOpt, 0 bus2scalar, 0 vwb
 *pvaI*        set_va_exp = 80 [80.0, 704.0] set by default
 *pvaW*        variable 'miu_S' declared but not used in RHS, deleted (Cryo_WS2_AK.va:64)
@@ -100,41 +100,42 @@ End of build pVA DB on Tue Jun 24 00:09:04 2025	GTM/In-use: 5.0000/4.9543 MB
 *pvaW*        variable 'v_inj' declared but not used in RHS, deleted (Cryo_WS2_AK.va:290)
 *pvaI*        generated 0 flow node(s) during compilation.
 
-End of pVA genC on Tue Jun 24 00:09:05 2025	GTM/In-use: 8.2500/7.9524 MB
+End of pVA genC on Tue Jun 24 11:34:44 2025	GTM/In-use: 8.2500/7.9493 MB
 
 *pvaI* #### Total 794 line-size(s), 115/338 expr(s), 9 contr(s), 0 init(s), 365 behav(s), 9 port(s)
 
-test_sram.pvadir/pvaRTL_linux64.so is reused
+Generating test_sram.pvadir/pvaRTL_linux64.so... successfully done.
+
 *pvaI* Creating VA module (Cryo_WS2_AK) for instance XACC2
 *pvaI*        termCount=3 diwSize=13 probeSize=86 Qsize=2 Isize=1
-End of GMD creation on Tue Jun 24 00:09:05 2025	GTM/In-use: 8.2500/4.4840 MB
+End of GMD creation on Tue Jun 24 11:34:44 2025	GTM/In-use: 8.2500/4.4754 MB
 
 *pvaI* Creating VA module (Cryo_WS2_AK) for instance XPU2
 *pvaI*        termCount=3 diwSize=13 probeSize=86 Qsize=2 Isize=1
-End of GMD creation on Tue Jun 24 00:09:05 2025	GTM/In-use: 8.2500/4.4797 MB
+End of GMD creation on Tue Jun 24 11:34:44 2025	GTM/In-use: 8.2500/4.4711 MB
 
 *pvaI* Creating VA module (Cryo_WS2_AK) for instance XPD2
 *pvaI*        termCount=3 diwSize=13 probeSize=86 Qsize=2 Isize=1
-End of GMD creation on Tue Jun 24 00:09:05 2025	GTM/In-use: 8.2500/4.4798 MB
+End of GMD creation on Tue Jun 24 11:34:44 2025	GTM/In-use: 8.2500/4.4712 MB
 
-End of pVA setup    on Tue Jun 24 00:09:05 2025	GTM/In-use: 8.2500/4.4767 MB
+End of pVA setup    on Tue Jun 24 11:34:44 2025	GTM/In-use: 8.2500/4.4681 MB
 
-Begin of pVA simulation on Tue Jun 24 00:09:05 2025	GTM/In-use: 8.2500/4.4767 MB
+Begin of pVA simulation on Tue Jun 24 11:34:44 2025	GTM/In-use: 8.2500/4.4681 MB
 
 *pvaI* minimum timestep = 1e-20
 
-End of pVA simulation reached at time 0 on Tue Jun 24 00:09:26 2025	GTM/In-use: 8.2500/4.4661 MB
+End of pVA simulation reached at time 0 on Tue Jun 24 11:35:03 2025	GTM/In-use: 8.2500/4.4576 MB
 
 
-		pVA malloc          0.414 Mbytes         5862 times
-		pVA calloc          9.405 Mbytes        44622 times
+		pVA malloc          0.414 Mbytes         5847 times
+		pVA calloc          9.399 Mbytes        44608 times
 		pVA realloc         0.037 Mbytes          200 times
 		pVA valloc          0.000 Mbytes            0 times
 		pVA alloca          0.000 Mbytes            0 times
 
-		pVA TOT-MEM         9.856 Mbytes        50684 times
+		pVA TOT-MEM         9.850 Mbytes        50655 times
 		pVA free                                 7317 times
 		pVA strdup          0.000 Mbytes            0 times
 
-pVA concluded on Tue Jun 24 00:09:26 2025	GTM/In-use: 8.2500/4.4661 MB
+pVA concluded on Tue Jun 24 11:35:03 2025	GTM/In-use: 8.2500/4.4576 MB
 
