@@ -2,8 +2,8 @@
 Input File: test_sram.sp
 lic:
 lic: FLEXlm: SDK_12.11.3
-lic: USER:   eding                HOSTNAME: ecellvm-15.engr.ucsb.edu
-lic: HOSTID: 6f80f51e             PID:      15827
+lic: USER:   eding                HOSTNAME: ecellvm-09.engr.ucsb.edu
+lic: HOSTID: 6f80ef1e             PID:      24930
 lic: Using FLEXlm license file:
 lic: 1781@license.ece.ucsb.edu
 lic: Checkout 4 hspice
@@ -11,7 +11,7 @@ lic: License/Maintenance for hspice will expire on 18-apr-2026/2023.12
 lic: 4(in_use)/50(total) FLOATING license(s) on SERVER 1781@license.ece.ucsb.edu
 lic:
 
- init: begin read circuit files, cpu clock= 8.90E-02
+ init: begin read circuit files, cpu clock= 1.02E-01
        option search = /ece/synopsys/hspice/T-2022.06-SP1-1/hspice/parts/ad
        option search = /ece/synopsys/hspice/T-2022.06-SP1-1/hspice/parts/behave
        option search = /ece/synopsys/hspice/T-2022.06-SP1-1/hspice/parts/bjt
@@ -27,26 +27,26 @@ lic:
        option search = /ece/synopsys/hspice/T-2022.06-SP1-1/hspice/parts/xilinx
        option post =     2.00
        option nomod
- init: end read circuit files, cpu clock= 9.52E-01 peak memory=     530 mb
- init: begin check errors, cpu clock= 9.52E-01
+ init: end read circuit files, cpu clock= 1.17E+00 peak memory=     532 mb
+ init: begin check errors, cpu clock= 1.17E+00
  lic: Checkin 3 hspice token(s)
- init: end check errors, cpu clock= 9.57E-01 peak memory=     530 mb
- init: begin setup matrix, pivot=     0 cpu clock= 9.57E-01
-       establish matrix -- done, cpu clock= 9.57E-01 peak memory=     530 mb
-       re-order matrix -- done, cpu clock= 9.57E-01 peak memory=     530 mb
- init: end setup matrix, cpu clock= 9.85E-01 peak memory=     530 mb
+ init: end check errors, cpu clock= 1.18E+00 peak memory=     533 mb
+ init: begin setup matrix, pivot=     0 cpu clock= 1.18E+00
+       establish matrix -- done, cpu clock= 1.18E+00 peak memory=     533 mb
+       re-order matrix -- done, cpu clock= 1.18E+00 peak memory=     533 mb
+ init: end setup matrix, cpu clock= 1.30E+00 peak memory=     533 mb
  output: test_sram.mt0
- sweep: tran tran0    begin, stop_t=  4.00E-08 #sweeps=2001 cpu clock= 1.12E+00
- tran: time= 4.5479E-09 tot_iter=      41 conv_iter=      12 cpu clock= 5.05E+00
- tran: time= 8.5479E-09 tot_iter=      45 conv_iter=      14 cpu clock= 5.42E+00
- tran: time= 1.3033E-08 tot_iter=     278 conv_iter=      60 cpu clock= 2.81E+01
- tran: time= 1.7033E-08 tot_iter=     282 conv_iter=      62 cpu clock= 2.81E+01
- tran: time= 2.1033E-08 tot_iter=     286 conv_iter=      64 cpu clock= 2.81E+01
- tran: time= 2.5033E-08 tot_iter=     290 conv_iter=      66 cpu clock= 2.81E+01
- tran: time= 2.9033E-08 tot_iter=     294 conv_iter=      68 cpu clock= 2.81E+01
- tran: time= 3.2033E-08 tot_iter=     500 conv_iter=     113 cpu clock= 4.90E+01
- tran: time= 3.7785E-08 tot_iter=     525 conv_iter=     121 cpu clock= 5.10E+01
- tran: time= 4.0000E-08 tot_iter=     529 conv_iter=     123 cpu clock= 5.10E+01
- sweep: tran tran0    end, cpu clock= 5.12E+01 peak memory=     530 mb
+ sweep: tran tran0    begin, stop_t=  4.00E-08 #sweeps=4001 cpu clock= 1.40E+00
+ tran: time= 4.6088E-09 tot_iter=      28 conv_iter=       9 cpu clock= 2.89E+00
+ tran: time= 8.6088E-09 tot_iter=      32 conv_iter=      11 cpu clock= 2.89E+00
+ tran: time= 1.3755E-08 tot_iter=     259 conv_iter=      49 cpu clock= 2.17E+01
+ tran: time= 1.7755E-08 tot_iter=     263 conv_iter=      51 cpu clock= 2.17E+01
+ tran: time= 2.1755E-08 tot_iter=     267 conv_iter=      53 cpu clock= 2.17E+01
+ tran: time= 2.5755E-08 tot_iter=     271 conv_iter=      55 cpu clock= 2.17E+01
+ tran: time= 2.9755E-08 tot_iter=     275 conv_iter=      57 cpu clock= 2.17E+01
+ tran: time= 3.3627E-08 tot_iter=     292 conv_iter=      65 cpu clock= 2.25E+01
+ tran: time= 3.7627E-08 tot_iter=     296 conv_iter=      67 cpu clock= 2.25E+01
+ tran: time= 4.0000E-08 tot_iter=     300 conv_iter=      69 cpu clock= 2.25E+01
+ sweep: tran tran0    end, cpu clock= 2.27E+01 peak memory=     533 mb
 >info:         ***** hspice job concluded
  lic: Release hspice token(s)
