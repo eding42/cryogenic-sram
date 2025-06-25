@@ -1,0 +1,82 @@
+
+Begin of pVA compiling on Tue Jun 24 17:46:55 2025	GTM/In-use: 0.2500/0.1661 MB
+
+Parsing 'Cryo_Si_AK.va'
+Parsing include file '/ece/synopsys/hspice/T-2022.06-SP1-1/hspice/include/constants.vams'
+Parsing include file '/ece/synopsys/hspice/T-2022.06-SP1-1/hspice/include/disciplines.vams'
+Parsing 'Cryo_MoS2_AK.va'
+Parsing include file '/ece/synopsys/hspice/T-2022.06-SP1-1/hspice/include/constants.vams'
+Parsing include file '/ece/synopsys/hspice/T-2022.06-SP1-1/hspice/include/disciplines.vams'
+Parsing 'Cryo_WS2_AK.va'
+Parsing include file '/ece/synopsys/hspice/T-2022.06-SP1-1/hspice/include/constants.vams'
+Parsing include file '/ece/synopsys/hspice/T-2022.06-SP1-1/hspice/include/disciplines.vams'
+
+End of pVA compiling on Tue Jun 24 17:46:55 2025	GTM/In-use: 1.6250/1.4901 MB
+
+
+End of build pVA DB on Tue Jun 24 17:46:55 2025	GTM/In-use: 5.0000/4.9543 MB
+
+*pvaI* Module (Cryo_Si_AK): 3 unexpanded port, 0 init, 69 behav, 3 contrib, 31/60 expr(s)
+*pvaW*        Variable 'n_2D' is used without declaration, set to real. To error out, setenv PVA_AUTO_DECLARE 0 (Cryo_Si_AK.va:122)
+*pvaW*        Variable 'ns_2D' is used without declaration, set to real. To error out, setenv PVA_AUTO_DECLARE 0 (Cryo_Si_AK.va:123)
+*pvaW*        Variable 'nd_2D' is used without declaration, set to real. To error out, setenv PVA_AUTO_DECLARE 0 (Cryo_Si_AK.va:124)
+*pvaW*        Variable 'etaS' is used without declaration, set to real. To error out, setenv PVA_AUTO_DECLARE 0 (Cryo_Si_AK.va:127)
+*pvaW*        Variable 'x' is used without declaration, set to integer. To error out, setenv PVA_AUTO_DECLARE 0 (Cryo_Si_AK.va:135)
+*pvaW*        Variable 'etaD' is used without declaration, set to real. To error out, setenv PVA_AUTO_DECLARE 0 (Cryo_Si_AK.va:142)
+*pvaW*        Variable 'v_inj' is used without declaration, set to real. To error out, setenv PVA_AUTO_DECLARE 0 (Cryo_Si_AK.va:171)
+*pvaI*        No DIS, 0/0 afCount, 1 MT, 8 NP, dlg, IO(0/0/0/0)
+*pvaI*        1 gmdIsThreadSafe 
+*pvaI*        0 const-G and 0 const-C, No switchBranch, 22 bypassOpt, 0 bus2scalar, 0 vwb
+*pvaI*        set_va_exp = 80 [80.0, 704.0] set by default
+*pvaW*        variable 'miu_S' declared but not used in RHS, deleted (Cryo_Si_AK.va:66)
+*pvaW*                   To relax this rule, use 'setenv PVA_KEEP_VARS 1' to keep variables for probing.
+*pvaW*        variable 'miu_D' declared but not used in RHS, deleted (Cryo_Si_AK.va:66)
+*pvaW*        variable '_etaS.etaD' declared but not used in RHS, deleted (Cryo_Si_AK.va:73)
+*pvaW*        variable 'ns_2D' undeclared and not used in RHS, deleted (Cryo_Si_AK.va:123)
+*pvaW*        variable 'nd_2D' declared but not used in RHS, deleted (Cryo_Si_AK.va:124)
+*pvaW*        variable 'v_inj' undeclared and not used in RHS, deleted (Cryo_Si_AK.va:171)
+*pvaI*        generated 0 flow node(s) during compilation.
+*pvaI* Module (Cryo_MoS2_AK): 3 unexpanded port, 0 init, 148 behav, 3 contrib, 42/139 expr(s)
+*pvaW*        Variable 'n_2D' is used without declaration, set to real. To error out, setenv PVA_AUTO_DECLARE 0 (Cryo_MoS2_AK.va:241)
+*pvaW*        Variable 'ns_2D' is used without declaration, set to real. To error out, setenv PVA_AUTO_DECLARE 0 (Cryo_MoS2_AK.va:242)
+*pvaW*        Variable 'nd_2D' is used without declaration, set to real. To error out, setenv PVA_AUTO_DECLARE 0 (Cryo_MoS2_AK.va:243)
+*pvaW*        Variable 'etaS' is used without declaration, set to real. To error out, setenv PVA_AUTO_DECLARE 0 (Cryo_MoS2_AK.va:246)
+*pvaW*        Variable 'x' is used without declaration, set to integer. To error out, setenv PVA_AUTO_DECLARE 0 (Cryo_MoS2_AK.va:254)
+*pvaW*        Variable 'etaD' is used without declaration, set to real. To error out, setenv PVA_AUTO_DECLARE 0 (Cryo_MoS2_AK.va:261)
+*pvaW*        Variable 'v_inj' is used without declaration, set to real. To error out, setenv PVA_AUTO_DECLARE 0 (Cryo_MoS2_AK.va:290)
+*pvaI*        No DIS, 0/0 afCount, 1 MT, 8 NP, dlg, IO(0/0/0/0)
+*pvaI*        1 gmdIsThreadSafe 
+*pvaI*        0 const-G and 0 const-C, No switchBranch, 22 bypassOpt, 0 bus2scalar, 0 vwb
+*pvaI*        set_va_exp = 80 [80.0, 704.0] set by default
+*pvaW*        variable 'miu_S' declared but not used in RHS, deleted (Cryo_MoS2_AK.va:64)
+*pvaW*        variable 'miu_D' declared but not used in RHS, deleted (Cryo_MoS2_AK.va:64)
+*pvaW*        variable '_etaS.etaD' declared but not used in RHS, deleted (Cryo_MoS2_AK.va:71)
+*pvaW*        variable 'ns_2D' declared but not used in RHS, deleted (Cryo_MoS2_AK.va:242)
+*pvaW*        variable 'nd_2D' undeclared and not used in RHS, deleted (Cryo_MoS2_AK.va:243)
+*pvaW*        variable 'v_inj' declared but not used in RHS, deleted (Cryo_MoS2_AK.va:290)
+*pvaI*        generated 0 flow node(s) during compilation.
+*pvaI* Module (Cryo_WS2_AK): 3 unexpanded port, 0 init, 148 behav, 3 contrib, 42/139 expr(s)
+*pvaW*        Variable 'n_2D' is used without declaration, set to real. To error out, setenv PVA_AUTO_DECLARE 0 (Cryo_WS2_AK.va:241)
+*pvaW*        Variable 'ns_2D' is used without declaration, set to real. To error out, setenv PVA_AUTO_DECLARE 0 (Cryo_WS2_AK.va:242)
+*pvaW*        Variable 'nd_2D' is used without declaration, set to real. To error out, setenv PVA_AUTO_DECLARE 0 (Cryo_WS2_AK.va:243)
+*pvaW*        Variable 'etaS' is used without declaration, set to real. To error out, setenv PVA_AUTO_DECLARE 0 (Cryo_WS2_AK.va:246)
+*pvaW*        Variable 'x' is used without declaration, set to integer. To error out, setenv PVA_AUTO_DECLARE 0 (Cryo_WS2_AK.va:254)
+*pvaW*        Variable 'etaD' is used without declaration, set to real. To error out, setenv PVA_AUTO_DECLARE 0 (Cryo_WS2_AK.va:261)
+*pvaW*        Variable 'v_inj' is used without declaration, set to real. To error out, setenv PVA_AUTO_DECLARE 0 (Cryo_WS2_AK.va:290)
+*pvaI*        No DIS, 0/0 afCount, 1 MT, 8 NP, dlg, IO(0/0/0/0)
+*pvaI*        1 gmdIsThreadSafe 
+*pvaI*        0 const-G and 0 const-C, No switchBranch, 22 bypassOpt, 0 bus2scalar, 0 vwb
+*pvaI*        set_va_exp = 80 [80.0, 704.0] set by default
+*pvaW*        variable 'miu_S' declared but not used in RHS, deleted (Cryo_WS2_AK.va:64)
+*pvaW*        variable 'miu_D' declared but not used in RHS, deleted (Cryo_WS2_AK.va:64)
+*pvaW*        variable '_etaS.etaD' declared but not used in RHS, deleted (Cryo_WS2_AK.va:71)
+*pvaW*        variable 'ns_2D' declared but not used in RHS, deleted (Cryo_WS2_AK.va:242)
+*pvaW*        variable 'nd_2D' undeclared and not used in RHS, deleted (Cryo_WS2_AK.va:243)
+*pvaW*        variable 'v_inj' declared but not used in RHS, deleted (Cryo_WS2_AK.va:290)
+*pvaI*        generated 0 flow node(s) during compilation.
+
+End of pVA genC on Tue Jun 24 17:46:56 2025	GTM/In-use: 8.2500/7.9524 MB
+
+*pvaI* #### Total 794 line-size(s), 115/338 expr(s), 9 contr(s), 0 init(s), 365 behav(s), 9 port(s)
+
+test_sram_read.pvadir/pvaRTL_linux64.so is reused
