@@ -1,0 +1,42 @@
+****** PrimeSim HSPICE -- T-2022.06-SP1-1 linux64 (Sep 29 2022 7820202) ******
+Input File: transistor_testbench.sp
+lic:
+lic: FLEXlm: SDK_12.11.3
+lic: USER:   eding                HOSTNAME: ecellvm-15.engr.ucsb.edu
+lic: HOSTID: 6f80f51e             PID:      19732
+lic: Using FLEXlm license file:
+lic: 1781@license.ece.ucsb.edu
+lic: Checkout 4 hspice
+lic: License/Maintenance for hspice will expire on 18-apr-2026/2023.12
+lic: 4(in_use)/50(total) FLOATING license(s) on SERVER 1781@license.ece.ucsb.edu
+lic:
+
+ init: begin read circuit files, cpu clock= 1.20E-01
+       option search = /ece/synopsys/hspice/T-2022.06-SP1-1/hspice/parts/ad
+       option search = /ece/synopsys/hspice/T-2022.06-SP1-1/hspice/parts/behave
+       option search = /ece/synopsys/hspice/T-2022.06-SP1-1/hspice/parts/bjt
+       option search = /ece/synopsys/hspice/T-2022.06-SP1-1/hspice/parts/burr_brn
+       option search = /ece/synopsys/hspice/T-2022.06-SP1-1/hspice/parts/comlinear
+       option search = /ece/synopsys/hspice/T-2022.06-SP1-1/hspice/parts/dio
+       option search = /ece/synopsys/hspice/T-2022.06-SP1-1/hspice/parts/fet
+       option search = /ece/synopsys/hspice/T-2022.06-SP1-1/hspice/parts/lin_tech
+       option search = /ece/synopsys/hspice/T-2022.06-SP1-1/hspice/parts/pci
+       option search = /ece/synopsys/hspice/T-2022.06-SP1-1/hspice/parts/signet
+       option search = /ece/synopsys/hspice/T-2022.06-SP1-1/hspice/parts/ti
+       option search = /ece/synopsys/hspice/T-2022.06-SP1-1/hspice/parts/tline
+       option search = /ece/synopsys/hspice/T-2022.06-SP1-1/hspice/parts/xilinx
+       option nomod
+       option post =     2.00
+ init: end read circuit files, cpu clock= 1.43E+00 peak memory=     534 mb
+ init: begin check errors, cpu clock= 1.43E+00
+ lic: Checkin 3 hspice token(s)
+ init: end check errors, cpu clock= 1.43E+00 peak memory=     534 mb
+ init: begin setup matrix, pivot=     0 cpu clock= 1.43E+00
+       establish matrix -- done, cpu clock= 1.43E+00 peak memory=     534 mb
+       re-order matrix -- done, cpu clock= 1.43E+00 peak memory=     534 mb
+ init: end setup matrix, cpu clock= 1.45E+00 peak memory=     534 mb
+ output: transistor_testbench.sw
+ sweep: dc dc0    begin, #sweeps=1001 cpu clock= 2.81E+00
+ sweep: dc dc0    end, cpu clock= 5.70E+01 peak memory=     534 mb
+>info:         ***** hspice job concluded
+ lic: Release hspice token(s)
