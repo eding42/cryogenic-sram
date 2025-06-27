@@ -1,0 +1,74 @@
+011700000000000000002001.title '6t sram cell read operation using ucsb 2d cryo c
+mos'    06/27/2025      03:40:30 Copyright (c) 1986 - 2025 by Synopsys, Inc. All
+ Rights Reserved.          0                                                    
+                          3       1       1       1       1       1       1     
+  1       1       1       1       1       1       1       1       1       1     
+  1       1       1       1       1       1       1       1       1       1     
+  1       1       1       1       1       1       1       1       1       1     
+  1       1       1       1       1       1       1       1       1       1     
+  1       1       1       1       1       1       1       1       1       1     
+  1       1       1       1       1       1       1       1       1       1     
+  1       1       1       1       1       1       1       1       1       1     
+  1       1       1       1       1       1       1       1       1       1     
+  1       1       1       1       1       1       1       1       1       1     
+  1       1       1       1       1       1       1       1       1       1     
+  1       1       1       1       1       1       1       1       8       8     
+u               v(0             v(barbl         v(bl            v(bl_int        
+v(blterm        v(blwire_end    v(q             v(qb            v(qbd           
+v(qd            v(v1            v(v2            v(vd            v(vdd           
+v(wl            v(xwirebl.n1    v(xwirebl.n2    v(xwirebl.n3    v(xwirebl.dcuwir
+e25_1.n1        v(xwirebl.dcuwire25_1.n2        v(xwirebl.dcuwire25_1.n3        
+v(xwirebl.dcuwire25_1.n4        v(xwirebl.dcuwire25_2.n1        v(xwirebl.dcuwir
+e25_2.n2        v(xwirebl.dcuwire25_2.n3        v(xwirebl.dcuwire25_2.n4        
+v(xwirebl.dcuwire25_3.n1        v(xwirebl.dcuwire25_3.n2        v(xwirebl.dcuwir
+e25_3.n3        v(xwirebl.dcuwire25_3.n4        v(xwirebl.dcuwire25_4.n1        
+v(xwirebl.dcuwire25_4.n2        v(xwirebl.dcuwire25_4.n3        v(xwirebl.dcuwir
+e25_4.n4        v(xwirebl.dcuwire25_1.dcuwire5_1.n1             v(xwirebl.dcuwir
+e25_1.dcuwire5_1.n2             v(xwirebl.dcuwire25_1.dcuwire5_1.n3             
+v(xwirebl.dcuwire25_1.dcuwire5_1.n4             v(xwirebl.dcuwire25_1.dcuwire5_2
+.n1             v(xwirebl.dcuwire25_1.dcuwire5_2.n2             v(xwirebl.dcuwir
+e25_1.dcuwire5_2.n3             v(xwirebl.dcuwire25_1.dcuwire5_2.n4             
+v(xwirebl.dcuwire25_1.dcuwire5_3.n1             v(xwirebl.dcuwire25_1.dcuwire5_3
+.n2             v(xwirebl.dcuwire25_1.dcuwire5_3.n3             v(xwirebl.dcuwir
+e25_1.dcuwire5_3.n4             v(xwirebl.dcuwire25_1.dcuwire5_4.n1             
+v(xwirebl.dcuwire25_1.dcuwire5_4.n2             v(xwirebl.dcuwire25_1.dcuwire5_4
+.n3             v(xwirebl.dcuwire25_1.dcuwire5_4.n4             v(xwirebl.dcuwir
+e25_1.dcuwire5_5.n1             v(xwirebl.dcuwire25_1.dcuwire5_5.n2             
+v(xwirebl.dcuwire25_1.dcuwire5_5.n3             v(xwirebl.dcuwire25_1.dcuwire5_5
+.n4             v(xwirebl.dcuwire25_2.dcuwire5_1.n1             v(xwirebl.dcuwir
+e25_2.dcuwire5_1.n2             v(xwirebl.dcuwire25_2.dcuwire5_1.n3             
+v(xwirebl.dcuwire25_2.dcuwire5_1.n4             v(xwirebl.dcuwire25_2.dcuwire5_2
+.n1             v(xwirebl.dcuwire25_2.dcuwire5_2.n2             v(xwirebl.dcuwir
+e25_2.dcuwire5_2.n3             v(xwirebl.dcuwire25_2.dcuwire5_2.n4             
+v(xwirebl.dcuwire25_2.dcuwire5_3.n1             v(xwirebl.dcuwire25_2.dcuwire5_3
+.n2             v(xwirebl.dcuwire25_2.dcuwire5_3.n3             v(xwirebl.dcuwir
+e25_2.dcuwire5_3.n4             v(xwirebl.dcuwire25_2.dcuwire5_4.n1             
+v(xwirebl.dcuwire25_2.dcuwire5_4.n2             v(xwirebl.dcuwire25_2.dcuwire5_4
+.n3             v(xwirebl.dcuwire25_2.dcuwire5_4.n4             v(xwirebl.dcuwir
+e25_2.dcuwire5_5.n1             v(xwirebl.dcuwire25_2.dcuwire5_5.n2             
+v(xwirebl.dcuwire25_2.dcuwire5_5.n3             v(xwirebl.dcuwire25_2.dcuwire5_5
+.n4             v(xwirebl.dcuwire25_3.dcuwire5_1.n1             v(xwirebl.dcuwir
+e25_3.dcuwire5_1.n2             v(xwirebl.dcuwire25_3.dcuwire5_1.n3             
+v(xwirebl.dcuwire25_3.dcuwire5_1.n4             v(xwirebl.dcuwire25_3.dcuwire5_2
+.n1             v(xwirebl.dcuwire25_3.dcuwire5_2.n2             v(xwirebl.dcuwir
+e25_3.dcuwire5_2.n3             v(xwirebl.dcuwire25_3.dcuwire5_2.n4             
+v(xwirebl.dcuwire25_3.dcuwire5_3.n1             v(xwirebl.dcuwire25_3.dcuwire5_3
+.n2             v(xwirebl.dcuwire25_3.dcuwire5_3.n3             v(xwirebl.dcuwir
+e25_3.dcuwire5_3.n4             v(xwirebl.dcuwire25_3.dcuwire5_4.n1             
+v(xwirebl.dcuwire25_3.dcuwire5_4.n2             v(xwirebl.dcuwire25_3.dcuwire5_4
+.n3             v(xwirebl.dcuwire25_3.dcuwire5_4.n4             v(xwirebl.dcuwir
+e25_3.dcuwire5_5.n1             v(xwirebl.dcuwire25_3.dcuwire5_5.n2             
+v(xwirebl.dcuwire25_3.dcuwire5_5.n3             v(xwirebl.dcuwire25_3.dcuwire5_5
+.n4             v(xwirebl.dcuwire25_4.dcuwire5_1.n1             v(xwirebl.dcuwir
+e25_4.dcuwire5_1.n2             v(xwirebl.dcuwire25_4.dcuwire5_1.n3             
+v(xwirebl.dcuwire25_4.dcuwire5_1.n4             v(xwirebl.dcuwire25_4.dcuwire5_2
+.n1             v(xwirebl.dcuwire25_4.dcuwire5_2.n2             v(xwirebl.dcuwir
+e25_4.dcuwire5_2.n3             v(xwirebl.dcuwire25_4.dcuwire5_2.n4             
+v(xwirebl.dcuwire25_4.dcuwire5_3.n1             v(xwirebl.dcuwire25_4.dcuwire5_3
+.n2             v(xwirebl.dcuwire25_4.dcuwire5_3.n3             v(xwirebl.dcuwir
+e25_4.dcuwire5_3.n4             v(xwirebl.dcuwire25_4.dcuwire5_4.n1             
+v(xwirebl.dcuwire25_4.dcuwire5_4.n2             v(xwirebl.dcuwire25_4.dcuwire5_4
+.n3             v(xwirebl.dcuwire25_4.dcuwire5_4.n4             v(xwirebl.dcuwir
+e25_4.dcuwire5_5.n1             v(xwirebl.dcuwire25_4.dcuwire5_5.n2             
+v(xwirebl.dcuwire25_4.dcuwire5_5.n3             v(xwirebl.dcuwire25_4.dcuwire5_5
+.n4             i(vdd           i(vwl           $&%#                            

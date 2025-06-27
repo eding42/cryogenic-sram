@@ -1,0 +1,42 @@
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+wm geometry . 900x785+-61+88
+Mdi:ArrangeIcons
+wm geometry . 900x785+-57+87
+Mdi:ArrangeIcons
+wm geometry . 900x785+-55+87
+Mdi:ArrangeIcons
+wm geometry . 900x785+-53+86
+Mdi:ArrangeIcons
+wm geometry . 900x785+-33+84
+Mdi:ArrangeIcons
+wm geometry . 900x785+-22+82
+Mdi:ArrangeIcons
+wm geometry . 900x785+10+82
+Mdi:ArrangeIcons
+wm geometry . 900x785+41+81
+Mdi:ArrangeIcons
+wm geometry . 900x785+54+81
+Mdi:ArrangeIcons
+wm geometry . 900x785+64+82
+Mdi:ArrangeIcons
+wm geometry . 900x785+70+83
+ScopeSigMgr:loadpffile /fs/student/eding/cryogenic-sram/SNM_sram.sw0 1 openonly
+# PF:1
+pf:read PF:1 v(q)
+# WF:1:1
+Graph addsignal WF:1:1 -region new -yview real(y) -xview real(x) -tracehi 2
+# Signal0
+pf:read PF:1 v(qb)
+# WF:1:2
+Graph addsignal WF:1:2 -region new -yview real(y) -xview real(x) -tracehi 2
+# Signal1
+Graph:Select Graph0
+Graph:DSel
+Graph itemselect Signal1 add
+# Signal1
+Graph:DSel
+Graph:DSel
+Graph itemselect Signal0 add
+# Signal0
+Graph sigconfig Signal0 -region 1 -rgnindex 1

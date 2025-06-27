@@ -1,0 +1,28 @@
+ScopeSigMgr:loadpffile /fs/student/eding/cryogenic-sram/SNM_sram.sw0 1 openonly
+# PF:1
+pf:read PF:1 v(q)
+# WF:1:1
+Graph addsignal WF:1:1 -region new -yview real(y) -xview real(x) -tracehi 2
+# Signal0
+pf:read PF:1 v(qb)
+# WF:1:6
+Graph addsignal WF:1:6 -region new -yview real(y) -xview real(x) -tracehi 2
+# Signal1
+Graph:Select Graph0
+Graph:DSel
+Graph itemselect Signal1 add
+# Signal1
+Graph delsignal selected
+Graph:DSel
+Graph itemselect Signal0 add
+# Signal0
+Graph delsignal selected
+Graph:DSel
+ScopeSigMgr:SetDefaultXAxis .sigmgr._PF:1 PF:1
+pf:read PF:1 v(q)
+# WF:1:1
+ScopeSigMgr:SetPfXAxis PF:1 WF:1:1
+pf:read PF:1 v(qb)
+# WF:1:6
+Graph addsignal WF:1:6 -region new -yview real(y) -xview real(x) -tracehi 2
+# Signal0
