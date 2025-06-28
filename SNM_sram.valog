@@ -8,7 +8,7 @@
 |                                                         |
 |             Synopsys Unified Verilog-A (pVA)            |
 |                                                         |
-|          Machine Name: ecellvm-14.engr.ucsb.edu         |
+|          Machine Name: ecellvm-09.engr.ucsb.edu         |
 | Copyright (c) 2021 Synopsys Inc., All Rights Reserved.  |
 |                                                         |
  ---------------------------------------------------------
@@ -24,7 +24,7 @@ Args:            -p hsp -t spi -f SNM_sram.pvadir/pvaHDL.lis -o SNM_sram.pvadir
 ### ENV(PVA_LAPLACE) is 0 ###
 ### optimize mode ###
 
-Begin of pVA compiling on Fri Jun 27 03:40:28 2025	GTM/In-use: 0.2500/0.1741 MB
+Begin of pVA compiling on Sat Jun 28 12:54:26 2025	GTM/In-use: 0.2500/0.1717 MB
 
 Parsing 'Cryo_Si_AK.va'
 Parsing include file '/ece/synopsys/hspice/T-2022.06-SP1-1/hspice/include/constants.vams'
@@ -39,13 +39,13 @@ Parsing 'CuWire.va'
 Parsing include file '/ece/synopsys/hspice/T-2022.06-SP1-1/hspice/include/disciplines.vams'
 Parsing include file '/ece/synopsys/hspice/T-2022.06-SP1-1/hspice/include/constants.vams'
 
-End of pVA compiling on Fri Jun 27 03:40:28 2025	GTM/In-use: 1.7500/1.6430 MB
+End of pVA compiling on Sat Jun 28 12:54:26 2025	GTM/In-use: 1.7500/1.6406 MB
 
 *pvaI* Hierarchical Verilog-A (HVA) instance has been detected: dCuWire5 (CuWire.va:35)
 *pvaI* Hierarchical Verilog-A (HVA) instance has been detected: dCuWire25 (CuWire.va:55)
 *pvaI* Hierarchical Verilog-A (HVA) instance has been detected: CuWire (CuWire.va:75)
 
-End of build pVA DB on Fri Jun 27 03:40:28 2025	GTM/In-use: 6.3750/6.2914 MB
+End of build pVA DB on Sat Jun 28 12:54:26 2025	GTM/In-use: 6.3750/6.2890 MB
 
 *pvaI* Module (Cryo_Si_AK): 3 unexpanded port, 0 init, 69 behav, 3 contrib, 31/60 expr(s)
 *pvaW*        Variable 'n_2D' is used without declaration, set to real. To error out, setenv PVA_AUTO_DECLARE 0 (Cryo_Si_AK.va:122)
@@ -55,8 +55,8 @@ End of build pVA DB on Fri Jun 27 03:40:28 2025	GTM/In-use: 6.3750/6.2914 MB
 *pvaW*        Variable 'x' is used without declaration, set to integer. To error out, setenv PVA_AUTO_DECLARE 0 (Cryo_Si_AK.va:135)
 *pvaW*        Variable 'etaD' is used without declaration, set to real. To error out, setenv PVA_AUTO_DECLARE 0 (Cryo_Si_AK.va:142)
 *pvaW*        Variable 'v_inj' is used without declaration, set to real. To error out, setenv PVA_AUTO_DECLARE 0 (Cryo_Si_AK.va:171)
-*pvaI*        No DIS, 0/0 afCount, 1 MT, 8 NP, dlg, IO(0/0/0/0)
-*pvaI*        1 gmdIsThreadSafe 
+*pvaI*        No DIS, 0/0 afCount, 0 MT, dlg, IO(0/0/0/0)
+*pvaI*        0 gmdIsThreadSafe 
 *pvaI*        0 const-G and 0 const-C, No switchBranch, 22 bypassOpt, 0 bus2scalar, 0 vwb
 *pvaI*        set_va_exp = 80 [80.0, 704.0] set by default
 *pvaW*        variable 'miu_S' declared but not used in RHS, deleted (Cryo_Si_AK.va:66)
@@ -75,8 +75,8 @@ End of build pVA DB on Fri Jun 27 03:40:28 2025	GTM/In-use: 6.3750/6.2914 MB
 *pvaW*        Variable 'x' is used without declaration, set to integer. To error out, setenv PVA_AUTO_DECLARE 0 (Cryo_MoS2_AK.va:254)
 *pvaW*        Variable 'etaD' is used without declaration, set to real. To error out, setenv PVA_AUTO_DECLARE 0 (Cryo_MoS2_AK.va:261)
 *pvaW*        Variable 'v_inj' is used without declaration, set to real. To error out, setenv PVA_AUTO_DECLARE 0 (Cryo_MoS2_AK.va:290)
-*pvaI*        No DIS, 0/0 afCount, 1 MT, 8 NP, dlg, IO(0/0/0/0)
-*pvaI*        1 gmdIsThreadSafe 
+*pvaI*        No DIS, 0/0 afCount, 0 MT, dlg, IO(0/0/0/0)
+*pvaI*        0 gmdIsThreadSafe 
 *pvaI*        0 const-G and 0 const-C, No switchBranch, 22 bypassOpt, 0 bus2scalar, 0 vwb
 *pvaI*        set_va_exp = 80 [80.0, 704.0] set by default
 *pvaW*        variable 'miu_S' declared but not used in RHS, deleted (Cryo_MoS2_AK.va:64)
@@ -94,8 +94,8 @@ End of build pVA DB on Fri Jun 27 03:40:28 2025	GTM/In-use: 6.3750/6.2914 MB
 *pvaW*        Variable 'x' is used without declaration, set to integer. To error out, setenv PVA_AUTO_DECLARE 0 (Cryo_WS2_AK.va:254)
 *pvaW*        Variable 'etaD' is used without declaration, set to real. To error out, setenv PVA_AUTO_DECLARE 0 (Cryo_WS2_AK.va:261)
 *pvaW*        Variable 'v_inj' is used without declaration, set to real. To error out, setenv PVA_AUTO_DECLARE 0 (Cryo_WS2_AK.va:290)
-*pvaI*        No DIS, 0/0 afCount, 1 MT, 8 NP, dlg, IO(0/0/0/0)
-*pvaI*        1 gmdIsThreadSafe 
+*pvaI*        No DIS, 0/0 afCount, 0 MT, dlg, IO(0/0/0/0)
+*pvaI*        0 gmdIsThreadSafe 
 *pvaI*        0 const-G and 0 const-C, No switchBranch, 22 bypassOpt, 0 bus2scalar, 0 vwb
 *pvaI*        set_va_exp = 80 [80.0, 704.0] set by default
 *pvaW*        variable 'miu_S' declared but not used in RHS, deleted (Cryo_WS2_AK.va:64)
@@ -106,30 +106,47 @@ End of build pVA DB on Fri Jun 27 03:40:28 2025	GTM/In-use: 6.3750/6.2914 MB
 *pvaW*        variable 'v_inj' declared but not used in RHS, deleted (Cryo_WS2_AK.va:290)
 *pvaI*        generated 0 flow node(s) during compilation.
 *pvaI* Module (dCuWire): 2 unexpanded port, 0 init, 6 behav, 3 contrib, 11/3 expr(s)
-*pvaI*        No DIS, 0/0 afCount, 1 MT, 8 NP, dlg, IO(0/0/0/0)
-*pvaI*        1 gmdIsThreadSafe 
+*pvaI*        No DIS, 0/0 afCount, 0 MT, dlg, IO(0/0/0/0)
+*pvaI*        0 gmdIsThreadSafe 
 *pvaI*        0 const-G and 0 const-C, No switchBranch, 0 bypassOpt, 0 bus2scalar, 0 vwb
 *pvaI*        set_va_exp = 80 [80.0, 704.0] set by default
 *pvaI*        generated 2 flow node(s) during compilation.
 
-End of pVA genC on Fri Jun 27 03:40:30 2025	GTM/In-use: 9.6250/9.3676 MB
+End of pVA genC on Sat Jun 28 12:54:27 2025	GTM/In-use: 9.6250/9.3643 MB
 
 *pvaI* #### Total 1499 line-size(s), 173/350 expr(s), 12 contr(s), 0 init(s), 371 behav(s), 17 port(s)
 
-SNM_sram.pvadir/pvaRTL_linux64.so is reused
-*pvaI* Creating VA module (dCuWire) for instance XWIREBL.DCUWIRE25_4.DCUWIRE5_5.DCUWIRE_5
-*pvaI*        termCount=6 diwSize=25 probeSize=20 Qsize=2 Isize=5
-End of GMD creation on Fri Jun 27 03:40:30 2025	GTM/In-use: 9.6250/4.8019 MB
+Generating SNM_sram.pvadir/pvaRTL_linux64.so... successfully done.
 
 *pvaI* Creating VA module (Cryo_WS2_AK) for instance XACC2
 *pvaI*        termCount=3 diwSize=13 probeSize=86 Qsize=2 Isize=1
-End of GMD creation on Fri Jun 27 03:40:30 2025	GTM/In-use: 9.6250/4.8161 MB
+End of GMD creation on Sat Jun 28 12:54:27 2025	GTM/In-use: 9.6250/4.8026 MB
 
 *pvaI* Creating VA module (Cryo_WS2_AK) for instance XPU2
 *pvaI*        termCount=3 diwSize=13 probeSize=86 Qsize=2 Isize=1
-End of GMD creation on Fri Jun 27 03:40:30 2025	GTM/In-use: 9.6250/4.8162 MB
+End of GMD creation on Sat Jun 28 12:54:27 2025	GTM/In-use: 9.6250/4.7983 MB
 
 *pvaI* Creating VA module (Cryo_WS2_AK) for instance XPD2
 *pvaI*        termCount=3 diwSize=13 probeSize=86 Qsize=2 Isize=1
-End of GMD creation on Fri Jun 27 03:40:30 2025	GTM/In-use: 9.6250/4.8163 MB
+End of GMD creation on Sat Jun 28 12:54:27 2025	GTM/In-use: 9.6250/4.7984 MB
+
+End of pVA setup    on Sat Jun 28 12:54:36 2025	GTM/In-use: 9.6250/4.8266 MB
+
+Begin of pVA simulation on Sat Jun 28 12:54:36 2025	GTM/In-use: 9.6250/4.8266 MB
+
+
+End of pVA simulation reached at time 0 on Sat Jun 28 12:55:45 2025	GTM/In-use: 9.6250/4.7725 MB
+
+
+		pVA malloc          0.542 Mbytes         6642 times
+		pVA calloc         11.427 Mbytes        47354 times
+		pVA realloc         0.039 Mbytes          225 times
+		pVA valloc          0.000 Mbytes            0 times
+		pVA alloca          0.000 Mbytes            0 times
+
+		pVA TOT-MEM        12.007 Mbytes        54221 times
+		pVA free                                 8062 times
+		pVA strdup          0.000 Mbytes            0 times
+
+pVA concluded on Sat Jun 28 12:55:45 2025	GTM/In-use: 9.6250/4.7725 MB
 
