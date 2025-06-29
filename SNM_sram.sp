@@ -14,6 +14,8 @@
 
 VDD vdd gnd VDDVAL
 
+.param Tsim = 4
+
 * Precharge both bitlins to VDD
 
 * VBL    bl    gnd VDDVAL
@@ -42,54 +44,54 @@ VWL wl gnd DC=0
 
 
 * Cross-coupled inverters
-Xpd1 gnd QD  QB Cryo_WS2_AK Type=1 W=1.800e-08 L=1.800e-08 T=300 absTol=1.000e-08
-Xpd2 gnd QBD Q  Cryo_WS2_AK Type=1 W=1.800e-08 L=1.800e-08 T=300 absTol=1.000e-08
+Xpd1 gnd QD  QB Cryo_WS2_AK Type=1 W=3.800e-08 L=1.800e-08 T=Tsim absTol=1.000e-08
+Xpd2 gnd QBD Q  Cryo_WS2_AK Type=1 W=3.800e-08 L=1.800e-08 T=Tsim absTol=1.000e-08
 
-Xpu1 vdd QD  QB Cryo_WS2_AK Type=-1 W=1.800e-08 L=1.800e-08 T=300 absTol=1.000e-08
-Xpu2 vdd QBD Q  Cryo_WS2_AK Type=-1 W=1.800e-08 L=1.800e-08 T=300 absTol=1.000e-08
+Xpu1 vdd QD  QB Cryo_WS2_AK Type=-1 W=1.800e-08 L=1.800e-08 T=Tsim absTol=1.000e-08
+Xpu2 vdd QBD Q  Cryo_WS2_AK Type=-1 W=1.800e-08 L=1.800e-08 T=Tsim absTol=1.000e-08
 
 * Access Transistors
-Xacc1 QD  bl    wl Cryo_WS2_AK Type=1 W=5.800e-08 L=1.800e-08 T=300 absTol=1.000e-08
-Xacc2 QBD barbl wl Cryo_WS2_AK Type=1 W=5.800e-08 L=1.800e-08 T=300 absTol=1.000e-08
+Xacc1 QD  bl    wl Cryo_WS2_AK Type=1 W=5.800e-08 L=1.800e-08 T=Tsim absTol=1.000e-08
+Xacc2 QBD barbl wl Cryo_WS2_AK Type=1 W=5.800e-08 L=1.800e-08 T=Tsim absTol=1.000e-08
 
 
-.param VSWP = 0
+* .param VSWP = 0
 
-Vinj   Q   gnd DC=VSWP
-Vinjb  QB  gnd DC='VDDVAL - VSWP'
+* * Vinj   Q   gnd DC=VSWP
+* * Vinjb  QB  gnd DC='VDDVAL - VSWP'
 
-.DC VSWP 0  VDDVAL  0.001
+* .DC VSWP 0  VDDVAL  0.001
 * record both voltages
-.PRINT  DC  V(Q)  V(QB)
+* .PRINT  DC  V(Q)  V(QB)
 
 
 * sweep variable U runs from –VDD/√2 to +VDD/√2
-* .PARAM  U = 0
-* .PARAM  UL = '-VDDVAL/sqrt(2)'
-* .PARAM  UH = 'VDDVAL/sqrt(2)'
+.PARAM  U = 0
+.PARAM  UL = '-VDDVAL/sqrt(2)'
+.PARAM  UH = 'VDDVAL/sqrt(2)'
 
-* EQ  Q   gnd VOL='1/sqrt(2)*U + 1/sqrt(2)*V(V1)'
-* EQB  QB   gnd VOL='-1/sqrt(2)*U + 1/sqrt(2)*V(V2)'
+EQ  Q   gnd VOL='1/sqrt(2)*U + 1/sqrt(2)*V(V1)'
+EQB  QB   gnd VOL='-1/sqrt(2)*U + 1/sqrt(2)*V(V2)'
 
 
 * VCVS to form rotated coordinates V1 and V2
-* EV1   V1   gnd   VOL= ' U  + sqrt(2)*V(QBD) '
-* EV2   V2   gnd   VOL= '-U + sqrt(2)*V(QD) '
+EV1   V1   gnd   VOL= ' U  + sqrt(2)*V(QBD) '
+EV2   V2   gnd   VOL= '-U + sqrt(2)*V(QD) '
 
 * * absolute-difference diode: length of diagonal of inscribed square
-* EVD   VD   gnd   VOL= 'ABS(V(V1) - V(V2)) '
+EVD   VD   gnd   VOL= 'ABS(V(V1) - V(V2)) '
 
 * * Sweep the “noise‐injection” coordinate U
-* .DC   U   UL   UH   0.01
+.DC   U   UL   UH   0.001
 
 * * Capture the rotated-difference (diagonal) at each step
-* .PRINT  DC  V(Q)  V(QB) V(V1) V(V2)
+.PRINT  DC  V(Q)  V(QB) V(V1) V(V2)
 
 * * Find the maximum diagonal over the sweep
-* .MEASURE DC  MAXVD  MAX  V(VD)
+.MEASURE DC  MAXVD  MAX  V(VD)
 
 * * Convert diagonal → SNM (side of square = diagonal/√2)
-* .MEASURE DC  SNM   PARAM='1/sqrt(2)*MAXVD '
+.MEASURE DC  SNM   PARAM='1/sqrt(2)*MAXVD '
 
 
 

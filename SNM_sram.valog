@@ -24,7 +24,7 @@ Args:            -p hsp -t spi -f SNM_sram.pvadir/pvaHDL.lis -o SNM_sram.pvadir
 ### ENV(PVA_LAPLACE) is 0 ###
 ### optimize mode ###
 
-Begin of pVA compiling on Sat Jun 28 12:54:26 2025	GTM/In-use: 0.2500/0.1717 MB
+Begin of pVA compiling on Sun Jun 29 00:31:10 2025	GTM/In-use: 0.2500/0.1717 MB
 
 Parsing 'Cryo_Si_AK.va'
 Parsing include file '/ece/synopsys/hspice/T-2022.06-SP1-1/hspice/include/constants.vams'
@@ -39,13 +39,13 @@ Parsing 'CuWire.va'
 Parsing include file '/ece/synopsys/hspice/T-2022.06-SP1-1/hspice/include/disciplines.vams'
 Parsing include file '/ece/synopsys/hspice/T-2022.06-SP1-1/hspice/include/constants.vams'
 
-End of pVA compiling on Sat Jun 28 12:54:26 2025	GTM/In-use: 1.7500/1.6406 MB
+End of pVA compiling on Sun Jun 29 00:31:10 2025	GTM/In-use: 1.7500/1.6406 MB
 
 *pvaI* Hierarchical Verilog-A (HVA) instance has been detected: dCuWire5 (CuWire.va:35)
 *pvaI* Hierarchical Verilog-A (HVA) instance has been detected: dCuWire25 (CuWire.va:55)
 *pvaI* Hierarchical Verilog-A (HVA) instance has been detected: CuWire (CuWire.va:75)
 
-End of build pVA DB on Sat Jun 28 12:54:26 2025	GTM/In-use: 6.3750/6.2890 MB
+End of build pVA DB on Sun Jun 29 00:31:10 2025	GTM/In-use: 6.3750/6.2890 MB
 
 *pvaI* Module (Cryo_Si_AK): 3 unexpanded port, 0 init, 69 behav, 3 contrib, 31/60 expr(s)
 *pvaW*        Variable 'n_2D' is used without declaration, set to real. To error out, setenv PVA_AUTO_DECLARE 0 (Cryo_Si_AK.va:122)
@@ -112,30 +112,29 @@ End of build pVA DB on Sat Jun 28 12:54:26 2025	GTM/In-use: 6.3750/6.2890 MB
 *pvaI*        set_va_exp = 80 [80.0, 704.0] set by default
 *pvaI*        generated 2 flow node(s) during compilation.
 
-End of pVA genC on Sat Jun 28 12:54:27 2025	GTM/In-use: 9.6250/9.3643 MB
+End of pVA genC on Sun Jun 29 00:31:11 2025	GTM/In-use: 9.6250/9.3643 MB
 
 *pvaI* #### Total 1499 line-size(s), 173/350 expr(s), 12 contr(s), 0 init(s), 371 behav(s), 17 port(s)
 
-Generating SNM_sram.pvadir/pvaRTL_linux64.so... successfully done.
-
+SNM_sram.pvadir/pvaRTL_linux64.so is reused
 *pvaI* Creating VA module (Cryo_WS2_AK) for instance XACC2
 *pvaI*        termCount=3 diwSize=13 probeSize=86 Qsize=2 Isize=1
-End of GMD creation on Sat Jun 28 12:54:27 2025	GTM/In-use: 9.6250/4.8026 MB
+End of GMD creation on Sun Jun 29 00:31:11 2025	GTM/In-use: 9.6250/4.8026 MB
 
 *pvaI* Creating VA module (Cryo_WS2_AK) for instance XPU2
 *pvaI*        termCount=3 diwSize=13 probeSize=86 Qsize=2 Isize=1
-End of GMD creation on Sat Jun 28 12:54:27 2025	GTM/In-use: 9.6250/4.7983 MB
+End of GMD creation on Sun Jun 29 00:31:11 2025	GTM/In-use: 9.6250/4.7983 MB
 
 *pvaI* Creating VA module (Cryo_WS2_AK) for instance XPD2
 *pvaI*        termCount=3 diwSize=13 probeSize=86 Qsize=2 Isize=1
-End of GMD creation on Sat Jun 28 12:54:27 2025	GTM/In-use: 9.6250/4.7984 MB
+End of GMD creation on Sun Jun 29 00:31:11 2025	GTM/In-use: 9.6250/4.7984 MB
 
-End of pVA setup    on Sat Jun 28 12:54:36 2025	GTM/In-use: 9.6250/4.8266 MB
+End of pVA setup    on Sun Jun 29 00:31:21 2025	GTM/In-use: 9.6250/4.8266 MB
 
-Begin of pVA simulation on Sat Jun 28 12:54:36 2025	GTM/In-use: 9.6250/4.8266 MB
+Begin of pVA simulation on Sun Jun 29 00:31:21 2025	GTM/In-use: 9.6250/4.8266 MB
 
 
-End of pVA simulation reached at time 0 on Sat Jun 28 12:55:45 2025	GTM/In-use: 9.6250/4.7725 MB
+End of pVA simulation reached at time 0 on Sun Jun 29 00:33:08 2025	GTM/In-use: 9.6250/4.7725 MB
 
 
 		pVA malloc          0.542 Mbytes         6642 times
@@ -148,5 +147,5 @@ End of pVA simulation reached at time 0 on Sat Jun 28 12:55:45 2025	GTM/In-use: 
 		pVA free                                 8062 times
 		pVA strdup          0.000 Mbytes            0 times
 
-pVA concluded on Sat Jun 28 12:55:45 2025	GTM/In-use: 9.6250/4.7725 MB
+pVA concluded on Sun Jun 29 00:33:08 2025	GTM/In-use: 9.6250/4.7725 MB
 

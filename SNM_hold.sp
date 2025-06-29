@@ -22,6 +22,7 @@ VDD vdd gnd VDDVAL
 * VBLDRV   bldrv 0    VDDVAL          
 * VBARBL   barbl 0    VDDVAL        
 
+.param Tsim = 5
 
 * Rvia1    bl bl_int Rvia
 * XwireBL  bl_int blwire_end CuWire l=Lwire w=Wwire h=Hwire rou=rouwire C=cwire
@@ -42,15 +43,15 @@ VWL wl gnd DC=0
 
 
 * Cross-coupled inverters
-Xpd1 gnd QD  QB Cryo_WS2_AK Type=1 W=1.800e-08 L=1.800e-08 T=300 absTol=1.000e-08
-Xpd2 gnd QBD Q  Cryo_WS2_AK Type=1 W=1.800e-08 L=1.800e-08 T=300 absTol=1.000e-08
+Xpd1 gnd QD  QB Cryo_WS2_AK Type=1 W=1.800e-08 L=1.800e-08 T=Tsim absTol=1.000e-08
+Xpd2 gnd QBD Q  Cryo_WS2_AK Type=1 W=1.800e-08 L=1.800e-08 T=Tsim absTol=1.000e-08
 
-Xpu1 vdd QD  QB Cryo_WS2_AK Type=-1 W=1.800e-08 L=1.800e-08 T=300 absTol=1.000e-08
-Xpu2 vdd QBD Q  Cryo_WS2_AK Type=-1 W=1.800e-08 L=1.800e-08 T=300 absTol=1.000e-08
+Xpu1 vdd QD  QB Cryo_WS2_AK Type=-1 W=1.800e-08 L=1.800e-08 T=Tsim absTol=1.000e-08
+Xpu2 vdd QBD Q  Cryo_WS2_AK Type=-1 W=1.800e-08 L=1.800e-08 T=Tsim absTol=1.000e-08
 
 * Access Transistors
-Xacc1 QD  bl    wl Cryo_WS2_AK Type=1 W=5.800e-08 L=1.800e-08 T=300 absTol=1.000e-08
-Xacc2 QBD barbl wl Cryo_WS2_AK Type=1 W=5.800e-08 L=1.800e-08 T=300 absTol=1.000e-08
+Xacc1 QD  bl    wl Cryo_WS2_AK Type=1 W=5.800e-08 L=1.800e-08 T=Tsim absTol=1.000e-08
+Xacc2 QBD barbl wl Cryo_WS2_AK Type=1 W=5.800e-08 L=1.800e-08 T=Tsim absTol=1.000e-08
 
 
 .param VSWP = 0
@@ -58,7 +59,13 @@ Xacc2 QBD barbl wl Cryo_WS2_AK Type=1 W=5.800e-08 L=1.800e-08 T=300 absTol=1.000
 Vinj   Q   gnd DC=VSWP
 Vinjb  QB  gnd DC='VDDVAL - VSWP'
 
-.DC VSWP 0  VDDVAL  0.001
+
+
+
+.DC VSWP 0  VDDVAL  0.0001
+
+
+
 * record both voltages
 .PRINT  DC  V(Q)  V(QB)
 
